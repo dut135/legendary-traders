@@ -1,0 +1,224 @@
+/* ============================================
+   CHART ANALYZER CSS
+   ============================================ */
+
+.chart-analyzer-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+}
+
+.chart-input-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.ticker-input {
+    background: var(--bg-card);
+    border: 2px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    width: 160px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Inter', monospace;
+    transition: var(--transition);
+}
+
+.ticker-input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(240, 192, 64, 0.15);
+}
+
+.ticker-input::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+}
+
+.analyze-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+}
+
+.analyze-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.quick-tickers {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.quick-ticker {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    border-radius: 100px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.quick-ticker:hover {
+    color: var(--accent-gold);
+    border-color: rgba(240, 192, 64, 0.3);
+    background: rgba(240, 192, 64, 0.08);
+}
+
+/* Chart Result */
+.chart-result {
+    display: none;
+    animation: fadeInUp 0.5s ease both;
+}
+
+.chart-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 1.5rem;
+}
+
+.chart-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    padding: 0.5rem;
+}
+
+.chart-canvas {
+    width: 100%;
+    height: 420px;
+    display: block;
+    border-radius: var(--radius-md);
+}
+
+.signal-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    overflow-y: auto;
+    max-height: 440px;
+}
+
+.signal-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.signal-metric {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-sm);
+    padding: 0.5rem 0.7rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.signal-metric-label {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.15rem;
+}
+
+.signal-metric-value {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.signal-detail {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-sm);
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.signal-detail-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: var(--text-secondary);
+}
+
+.signal-detail p {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.signal-rules {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-sm);
+    padding: 0.8rem;
+}
+
+.signal-rules-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.checklist-item {
+    font-size: 0.8rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    line-height: 1.4;
+}
+
+.checklist-item.pass { color: #34d399; }
+.checklist-item.fail { color: #ef4444; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .chart-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .signal-panel {
+        max-height: none;
+    }
+    
+    .chart-canvas {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chart-input-area {
+        flex-direction: column;
+    }
+    
+    .ticker-input {
+        width: 100%;
+    }
+}
