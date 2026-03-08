@@ -840,6 +840,60 @@ body {
 }
 
 /* ============================================
+   MARKET CHART SECTION
+   ============================================ */
+.market-chart-section {
+    max-width: 1400px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    animation: fadeInUp 0.8s ease both;
+}
+
+.chart-container-full {
+    background: var(--bg-card);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    margin-top: 2rem;
+    height: 650px;
+}
+
+.market-chart-section .section-title {
+    margin-bottom: 0.5rem;
+}
+
+.market-chart-section .screener-subtitle {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.ticker-tape-container {
+    width: 100%;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+    position: relative;
+    z-index: 1001;
+}
+
+.market-dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.market-overview-widget {
+    background: var(--bg-card);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    box-shadow: var(--shadow-card);
+    height: 650px;
+}
+
+/* ============================================
    ANIMATIONS
    ============================================ */
 @keyframes fadeInUp {
@@ -900,6 +954,10 @@ body {
     }
     
     .rules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .market-dashboard-grid {
         grid-template-columns: 1fr;
     }
 }

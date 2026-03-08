@@ -12,6 +12,46 @@
 </head>
 <body>
     <div class="app">
+        <!-- TICKER TAPE WIDGET -->
+        <div class="tradingview-widget-container ticker-tape-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+            "symbols": [
+                {
+                "proName": "FOREXCOM:NSXUSD",
+                "title": "Nasdaq 100"
+                },
+                {
+                "proName": "KRX:KOSPI",
+                "title": "KOSPI"
+                },
+                {
+                "proName": "BITSTAMP:BTCUSD",
+                "title": "Bitcoin"
+                },
+                {
+                "proName": "FX_IDC:USDKRW",
+                "title": "USD/KRW"
+                },
+                {
+                "proName": "TVC:GOLD",
+                "title": "Gold"
+                },
+                {
+                "proName": "TVC:UKOIL",
+                "title": "Crude Oil"
+                }
+            ],
+            "showSymbolLogo": true,
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "displayMode": "adaptive",
+            "locale": "kr"
+            }
+            </script>
+        </div>
+
         <!-- Hero Section -->
         <header class="hero">
             <div class="hero-bg"></div>
@@ -55,6 +95,74 @@
                 <button class="filter-btn" data-filter="activist">행동주의</button>
             </div>
         </nav>
+
+        <!-- MARKET DASHBOARD SECTION -->
+        <section class="market-chart-section" id="marketChart">
+            <h2 class="section-title">🌍 글로벌 시장 상황판 — 실시간 대시보드</h2>
+            <p class="screener-subtitle">나스닥, 코스피, 비트코인 등 주요 시장 지표를 병렬 분석합니다</p>
+            
+            <div class="market-dashboard-grid">
+                <!-- Market Overview List Widget -->
+                <div class="market-overview-widget">
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                        {
+                        "colorTheme": "dark",
+                        "dateRange": "12M",
+                        "showChart": true,
+                        "locale": "kr",
+                        "largeChartUrl": "",
+                        "isTransparent": true,
+                        "showSymbolLogo": true,
+                        "showFloatingTooltip": false,
+                        "width": "100%",
+                        "height": "600",
+                        "tabs": [
+                            {
+                            "title": "주요 지표",
+                            "symbols": [
+                                { "s": "FOREXCOM:NSXUSD", "d": "나스닥 100" },
+                                { "s": "KRX:KOSPI", "d": "코스피" },
+                                { "s": "BITSTAMP:BTCUSD", "d": "비트코인" },
+                                { "s": "FX_IDC:USDKRW", "d": "원/달러 환율" },
+                                { "s": "TVC:GOLD", "d": "금" },
+                                { "s": "TVC:UKOIL", "d": "브렌트유" }
+                            ]
+                            }
+                        ]
+                        }
+                        </script>
+                    </div>
+                </div>
+
+                <!-- Detailed Real-time Chart -->
+                <div class="chart-container-full">
+                    <div class="tradingview-widget-container" style="height: 100%;">
+                        <div id="tradingview_main" style="height: 100%;"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                        <script type="text/javascript">
+                        new TradingView.widget(
+                        {
+                        "autosize": true,
+                        "symbol": "NASDAQ:IXIC",
+                        "interval": "D",
+                        "timezone": "Asia/Seoul",
+                        "theme": "dark",
+                        "style": "1",
+                        "locale": "kr",
+                        "toolbar_bg": "#f1f3f6",
+                        "enable_publishing": false,
+                        "hide_side_toolbar": false,
+                        "allow_symbol_change": true,
+                        "container_id": "tradingview_main"
+                        }
+                        );
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- CHART ANALYZER SECTION -->
         <section class="chart-analyzer-section" id="chartAnalyzer">
